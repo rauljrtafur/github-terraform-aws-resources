@@ -106,7 +106,7 @@ resource "aws_apigatewayv2_stage" "apigateway" {
 resource "aws_apigatewayv2_integration" "lambda" {
   for_each           = local.routes
   api_id             = aws_apigatewayv2_api.api.id
-  integration_uri    = module.lambda_function.lambda_function_arn
+  integration_uri    = module.lambda_function.lambda_function_invoke_arn
   integration_type   = "HTTP_PROXY"
   integration_method = "POST"
 }
