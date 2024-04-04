@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "iam_for_lambda_policy_API" {
 
 resource "aws_iam_role_policy_attachment" "iam_for_lambda_policy_DB" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
-  role       = aws_iam_role.lambda[each.value.name].name
+  role       = "arn:aws:iam::730335392708:role/imageGenerator-lambda"
 }
 
 resource "aws_apigatewayv2_api" "api" {
