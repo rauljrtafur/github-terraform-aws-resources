@@ -50,7 +50,7 @@ data "archive_file" "lambda" {
 module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
 
-  function_name          = "imageGenerator-lambda"
+  function_name          = "imageGenerator-lambda2"
   description            = "My lambda function"
   handler                = "lambda_function.lambda_handler"
   runtime                = "python3.9"
