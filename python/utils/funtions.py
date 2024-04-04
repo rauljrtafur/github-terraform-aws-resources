@@ -38,7 +38,7 @@ def upload_profile(body):
     picture = body.get("picture")
     
     # Upload the image to S3 and get the URL
-    s3_bucket_name = 'image-generate-buckets3'
+    s3_bucket_name = 'image-generate'
     s3_key = f'{profile_id}/profile_picture'
     upload_image_to_s3(picture, s3_bucket_name, s3_key)
     picture_url = f'https://{s3_bucket_name}.s3.amazonaws.com/{s3_key}'
