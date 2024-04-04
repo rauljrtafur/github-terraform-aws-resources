@@ -16,7 +16,7 @@ provider "aws" {
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
-  bucket = "image-generate-buckets3"
+  bucket = "imageGenerate-buckets3"
   acl    = "private"
 
   control_object_ownership = true
