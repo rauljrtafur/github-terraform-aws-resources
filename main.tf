@@ -68,17 +68,19 @@ module "lambda_function" {
 
 resource "aws_iam_role_policy_attachment" "iam_for_lambda_policy_S3" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
-  role       = module.lambda_function.lambda_role_arn
+  role       = aws_iam_role.lambda[each.value.name].name
+  # role       = module.lambda_function.lambda_role_arn
+
 }
 
 resource "aws_iam_role_policy_attachment" "iam_for_lambda_policy_API" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonAPIGatewayInvokeFullAccess"
-  role       = module.lambda_function.lambda_role_arn
+  role       = aws_iam_role.lambda[each.value.name].name
 }
 
 resource "aws_iam_role_policy_attachment" "iam_for_lambda_policy_DB" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
-  role       = module.lambda_function.lambda_role_arn
+  role       = aws_iam_role.lambda[each.value.name].name
 }
 
 resource "aws_apigatewayv2_api" "api" {
