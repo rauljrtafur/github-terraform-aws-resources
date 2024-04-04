@@ -67,7 +67,7 @@ module "lambda_function" {
 }
 
 resource "aws_apigatewayv2_api" "api" {
-  name          = "imageGenerator-API"
+  name          = "imageGenerator-API2"
   protocol_type = "HTTP"
 
   cors_configuration {
